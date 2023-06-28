@@ -1,0 +1,38 @@
+{
+    "name": "pokemon-io",
+    "version": "1.0.0",
+    "description": "Pokémon browser battle game",
+    "main": "index.js",
+    "scripts": {
+        "test": "npm run build:prod && ex-test -d ./dist -t ./test/test.js",
+        "build:dev": "webpack --config webpack.development.js",
+        "build:prod": "webpack --config webpack.production.js",
+        "start:dev": "webpack serve --config webpack.development.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "pokemon-io"
+    },
+    "keywords": [
+        "pokemon",
+        "game",
+        "browser"
+    ],
+    "author": "Daniel Silva",
+    "license": "MIT",
+    "dependencies": {
+        "excalibur": "^0.27.0"
+    },
+    "devDependencies": {
+        "clean-webpack-plugin": "^4.0.0",
+        "compression-webpack-plugin": "^10.0.0",
+        "html-webpack-plugin": "^5.5.3",
+        "source-map-loader": "^4.0.1",
+        "terser-webpack-plugin": "^5.3.9",
+        "ts-loader": "^9.4.3",
+        "webpack": "^5.88.0",
+        "webpack-cli": "^5.1.4",
+        "webpack-dev-server": "^4.15.1",
+        "webpack-merge": "^5.9.0"
+    }
+}

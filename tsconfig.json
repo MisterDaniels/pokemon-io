@@ -1,0 +1,17 @@
+{
+    "include": ["src/**/*"],
+    "compilerOptions": {
+        "target": "es2015",
+        "module": "es6",
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "outDir": "./dist/",
+        "paths": {
+            "@src/*": [ "src/*" ],
+            "@assets/*": [ "assets/*" ]
+        },
+        "strict": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true
+    }
+}
