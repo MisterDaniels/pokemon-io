@@ -1,18 +1,9 @@
-import { Engine, Scene, SceneActivationContext, TileMap, Vector, vec } from 'excalibur';
+import { Engine, SceneActivationContext, Vector } from 'excalibur';
+import TileMapScene from '@src/core/TileMapScene';
 
-export default class Main extends Scene {
-    public tileMap: TileMap;
-
+export default class Main extends TileMapScene {
     constructor() {
-        super();
-
-        this.tileMap = new TileMap({
-            pos: vec(0, 0),
-            tileWidth: 32,
-            tileHeight: 32,
-            rows: 10,
-            columns: 10
-        });
+        super(10, 10);
     }
 
     public onInitialize(_engine: Engine): void {}
@@ -25,5 +16,21 @@ export default class Main extends Scene {
         if (!tile) return true;
 
         return false;
+    }
+
+    public hasTileItem(vec: Vector): boolean {
+        const tile = this.tileMap.getTileByPoint(vec);
+
+        if (!tile) return false;
+
+        return this.instances.getActorsAtTile(vec).length > 0;
+    }
+
+    public removeTileItem(vec: Vector): void {
+        const tile = this.tileMap.getTileByPoint(vec);
+
+        if (!tile) return;
+
+        return this.instances.removeAllActorAtTile(this, vec);
     }
 }
