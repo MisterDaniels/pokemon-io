@@ -40,6 +40,7 @@ export class Player extends Actor {
 
         if ((this.scene as Main).hasTileItem(this.pos)) {
             (this.scene as TileMapScene).instances.removeAllActorAtTile(this.scene as TileMapScene, this.pos);
+            (this.scene as TileMapScene).gameManager.setScore({ id: 0 } as Player);
         }
     }
 }

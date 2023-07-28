@@ -1,9 +1,10 @@
 import { Engine, SceneActivationContext, Vector } from 'excalibur';
 import TileMapScene from '@src/core/TileMapScene';
+import GameManager from '@src/core/GameManager';
 
 export default class Main extends TileMapScene {
-    constructor() {
-        super(10, 10);
+    constructor(gameManager: GameManager) {
+        super(gameManager, 10, 10);
     }
 
     public onInitialize(_engine: Engine): void {}
