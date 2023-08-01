@@ -4,3 +4,4 @@
 - [x] Create first catch mechanic;
 - [x] Create point system;
 - [x] Create victory condition;
+- [ ] Render player pnj;

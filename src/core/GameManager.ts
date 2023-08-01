@@ -1,6 +1,6 @@
 import { Engine } from "excalibur";
 import { SCORE_VICTORY } from "@src/constants";
-import { Player, PlayerScore } from "@src/types/types";
+import { PlayerType, PlayerScore } from "@src/types/types";
 
 export default class GameManager {
     
@@ -8,11 +8,11 @@ export default class GameManager {
     private startTime: number = 0;
     private scores: PlayerScore[] = [];
 
-    public startGame(_engine: Engine, players: Player[]): void {
+    public startGame(_engine: Engine, players: PlayerType[]): void {
         this.engine = _engine;
         this.startTime = Date.now();
         
-        players.forEach((player: Player) => {
+        players.forEach((player: PlayerType) => {
             this.scores.push({
                 player: player,
                 points: 0
@@ -20,7 +20,7 @@ export default class GameManager {
         });
     }
 
-    public setScore(player: Player, points: number = 1): boolean {
+    public setScore(player: PlayerType, points: number = 1): boolean {
         const index = this.scores.findIndex((playerScore: PlayerScore) => playerScore.player.id === player.id);
 
         if (index === -1) return false;
@@ -31,7 +31,7 @@ export default class GameManager {
         return true;
     }
 
-    public getScore(player: Player): PlayerScore | null {
+    public getScore(player: PlayerType): PlayerScore | null {
         const index = this.scores.findIndex((playerScore: PlayerScore) => playerScore.player.id === player.id);
 
         if (index === -1) return null;

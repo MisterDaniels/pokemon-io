@@ -4,6 +4,7 @@ import { Main as MainScene, Victory as VictoryScene } from '@src/scenes';
 import { spawnObject } from "@src/mechanics/spawner";
 import { randEmptyTile } from "./utils/math";
 import GameManager from "./core/GameManager";
+import { PlayerType } from "./types/types";
 
 class Game extends Engine {
 
@@ -28,7 +29,7 @@ class Game extends Engine {
     }
 
     public onInitialize(_engine: Engine): void {
-        this.gameManager.startGame(_engine, [{ id: 0 } as Player]);
+        this.gameManager.startGame(_engine, [{ id: 0 } as PlayerType]);
 
         this.scoreLabel = new Label({
             text: '', 
@@ -69,7 +70,7 @@ class Game extends Engine {
     }
 
     public onPostUpdate(_engine: Engine, _delta: number): void {
-        this.scoreLabel.text = `Pontuação: ${ this.gameManager.getScore({ id: 0 } as Player)?.points }`;
+        this.scoreLabel.text = `Pontuação: ${ this.gameManager.getScore({ id: 0 } as PlayerType)?.points }`;
         this.timeLabel.text = `Tempo: ${ this.gameManager.getTimeElapsed().toFixed(2) } segundos`;
         super.onPostUpdate(_engine, _delta);
     }

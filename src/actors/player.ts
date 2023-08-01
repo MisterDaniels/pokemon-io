@@ -2,6 +2,7 @@ import { Actor, Color, Engine, Input, vec } from "excalibur";
 import { Main } from "@src/scenes";
 import { TILE_HEIGHT, TILE_WIDTH } from "@src/constants";
 import TileMapScene from "@src/core/TileMapScene";
+import { PlayerType } from "@src/types/types";
 
 export class Player extends Actor {
     constructor() {
@@ -40,7 +41,7 @@ export class Player extends Actor {
 
         if ((this.scene as Main).hasTileItem(this.pos)) {
             (this.scene as TileMapScene).instances.removeAllActorAtTile(this.scene as TileMapScene, this.pos);
-            (this.scene as TileMapScene).gameManager.setScore({ id: 0 } as Player);
+            (this.scene as TileMapScene).gameManager.setScore({ id: 0 } as PlayerType);
         }
     }
 }
